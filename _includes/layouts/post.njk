@@ -15,6 +15,7 @@ layout: layouts/base.njk
 {% set prevPost = collections.publishedPosts | getPreviousCollectionItem(page) %}
 {% set nextPost = collections.publishedPosts | getNextCollectionItem(page) %}
 {% if prevPost or nextPost %}
+<p class="post-nav__hint">{% if nextPost and prevPost %}Desliza a la izquierda para el siguiente texto · Desliza a la derecha para el anterior{% elif nextPost %}Desliza a la izquierda para el siguiente texto{% else %}Desliza a la derecha para el anterior{% endif %}</p>
 <nav class="post-nav" aria-label="More writing">
   {% if prevPost %}<a class="post-nav__prev" href="{{ prevPost.url }}">← {{ prevPost.data.title }}</a>{% endif %}
   {% if nextPost %}<a class="post-nav__next" href="{{ nextPost.url }}">{{ nextPost.data.title }} →</a>{% endif %}
